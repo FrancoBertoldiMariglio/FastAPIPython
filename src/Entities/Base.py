@@ -4,4 +4,5 @@ Base = declarative_base()
 
 
 class Base(Base):
+    __tablename__ = 'base'
     id = Column(Integer, primary_key = True)

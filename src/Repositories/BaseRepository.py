@@ -1,7 +1,5 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
-from __init__ import DATABASE_URL
-
 
 class BaseRepository:
     _instance = None
@@ -14,7 +12,7 @@ class BaseRepository:
         return  cls._instance
 
     def __init__(self, table):
-        self.engine = create_engine(DATABASE_URL)
+        self.engine = create_engine('sqlite:///./database.db')
         self.Session = sessionmaker(bind=self.engine)
         self.conn = self.Session()
         self.table = table

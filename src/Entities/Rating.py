@@ -4,6 +4,7 @@ from sqlalchemy import Column, Integer, String, Float, ForeignKey
 
 
 class Rating(Base):
+    __tablename__ = 'Rating'
     rate = Column(Float)
     contador = Column(Integer)
 
