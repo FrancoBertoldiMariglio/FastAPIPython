@@ -7,6 +7,8 @@ router = APIRouter()
 class BaseControllerImplement(BaseController):
 
     dir = 'base'
+    def __init__(self, dir):
+        self.dir = dir
 
     @router.get("/" + dir + "/")
     def getAll(self):
