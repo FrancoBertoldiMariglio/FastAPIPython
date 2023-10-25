@@ -14,9 +14,9 @@ class BaseServiceImplement(BaseService):
         except Exception as e:
             raise Exception(str(e))
 
-    def findOne(self, id):
+    def findOne(self, identificador):
         try:
-            return self.baseRepository.findById(id)
+            return self.baseRepository.findById(identificador)
         except Exception as e:
             raise Exception(str(e))
 
@@ -26,19 +26,19 @@ class BaseServiceImplement(BaseService):
         except Exception as e:
             raise Exception(str(e))
 
-    def update(self, entity, id):
+    def update(self, entity, identificador):
         try:
-            optEntity = self.baseRepository.findById(id)
-            if optEntity != None:
+            optEntity = self.baseRepository.findById(identificador)
+            if optEntity:
                 entityUpdate = self.baseRepository.save(entity)
                 return entityUpdate
         except Exception as e:
             raise Exception(str(e))
 
-    def delete(self, id):
+    def delete(self, identificador):
         try:
-            if self.baseRepository.findById(id) != None:
-                self.baseRepository.delete(id)
+            if self.baseRepository.findById(identificador):
+                self.baseRepository.delete(identificador)
                 return True
             else:
                 raise Exception()

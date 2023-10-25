@@ -25,9 +25,9 @@ class BaseRepository:
         except Exception as e:
             raise Exception(str(e))
 
-    def findById(self, id):
+    def findById(self, identificador):
         try:
-            objeto = self.conn.query(self.table).get(id)
+            objeto = self.conn.query(self.table).get(identificador)
             self.conn.commit()
             return objeto
         except Exception as e:
@@ -43,9 +43,10 @@ class BaseRepository:
                 raise Exception("No existe")
         except Exception as e:
             raise Exception(str(e))
-    def delete(self, id):
+
+    def delete(self, identificador):
         try:
-            self.conn.delete(id)
+            self.conn.delete(identificador)
             self.conn.commit()
             return True
         except Exception as e:
