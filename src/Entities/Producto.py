@@ -1,10 +1,12 @@
 from sqlalchemy.orm import relationship
-from .Base import Base
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
 
+Base = declarative_base()
 
 class Producto(Base):
     __tablename__ = 'Producto'
+    id = Column(Integer, primary_key=True)
     titulo = Column(String)
     precio_compra = Column(Float)
     descripcion = Column(String)
